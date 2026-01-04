@@ -1,0 +1,12 @@
+@use '../helpers' as *;
+
+.nav-bar {
+ @apply hover:text-[#e02b20] hover:border-b-2 border-b-[#e02b20] flex items-center
+}
+
+.home-hero {
+  background-image: url('../public/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+}
+
