@@ -3,10 +3,243 @@
 .nav-bar {
  @apply hover:text-[#e02b20] hover:border-b-2 border-b-[#e02b20] flex items-center
 }
-
-.home-hero {
-  background-image: url('../public/hero-bg.webp');
-  background-size: cover;
-  background-position: center;
+.nav-bar {
+  position: relative;
+  padding-bottom: 4px;
 }
 
+.nav-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #e02b20;
+  transition: width 0.3s ease;
+}
+
+/* Hover underline */
+.nav-bar:hover::after {
+  width: 100%;
+}
+
+/* Active section underline */
+.nav-bar.active::after {
+  width: 100%;
+}
+
+
+
+ @media (min-width: 1024px) {
+    .home-text{
+        max-width: 100%;
+    }
+}
+.bg-color {
+  background-color: #e02b20;
+}
+.form {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Default dot */
+.main-products-splide .splide__pagination__page {
+  background-color: #d1d5db; /* grey */
+  opacity: 1;
+}
+
+/* Active dot */
+.main-products-splide .splide__pagination__page.is-active {
+  background-color: #e11d48; /* red */
+}
+
+.control-btn {
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+  background: #f3f3f3;
+  color: #000;
+}
+
+.control-btn.is-active {
+  background: #e02b20;
+  color: #000;
+  pointer-events: none;
+}
+
+
+
+
+
+// #shade-card .splide__arrow {
+//   background: white;
+//   opacity: 0.9;
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+// }
+
+// #shade-card .splide__arrow svg {
+//   fill: #e02b20;
+// }
+
+.testimonial-splide {
+  min-height: 220px;
+}
+
+/* REMOVE CF7 <p> BREAKING LAYOUT */
+.newsletter-inline p {
+  margin: 0;
+}
+
+/* FLEX LAYOUT */
+.newsletter-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* EMAIL INPUT */
+.newsletter-inline input[type="email"] {
+  width: 420px;
+  padding: 14px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+/* SUBSCRIBE BUTTON */
+.newsletter-inline input[type="submit"] {
+  background-color: #e02b20;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.newsletter-inline input[type="submit"]:hover {
+  background-color: #c8251b;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 640px) {
+  .newsletter-inline {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter-inline input[type="email"],
+  .newsletter-inline input[type="submit"] {
+    width: 100%;
+  }
+}
+.faq-answer {
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+//splide
+.shade-card-splide {
+  position: relative;
+  max-width: 900px;   /* prevents full-width takeover */
+  margin-left: auto;
+}
+
+/* Allow arrows to show */
+.shade-card-splide .splide__track {
+  overflow: hidden;
+}
+
+//slide controller
+.shade-card-splide .splide__slide {
+  display: flex;
+  justify-content: center;
+}
+
+//cards
+.shade-card {
+  width: 100%;
+  max-width: 300px;
+  height: 360px;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+
+.shade-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+//label
+.shade-label {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+//arrow verticle center
+.shade-card-splide .splide__arrow {
+  background: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.shade-card-splide .splide__arrow--prev {
+  left: -22px;
+}
+
+.shade-card-splide .splide__arrow--next {
+  right: -22px;
+}
+
+.shade-card-splide .splide__arrow svg {
+  fill: #e02b20;
+}
+
+//responsive
+@media (max-width: 1024px) {
+  .shade-card {
+    height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .shade-card {
+    height: 300px;
+  }
+
+  .shade-card-splide {
+    max-width: 100%;
+  }
+
+  .shade-card-splide .splide__arrow--prev {
+    left: 0;
+  }
+
+  .shade-card-splide .splide__arrow--next {
+    right: 0;
+  }
+}

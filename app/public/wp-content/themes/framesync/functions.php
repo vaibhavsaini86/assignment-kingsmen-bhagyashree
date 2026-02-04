@@ -76,14 +76,114 @@ function framesync_enqueue_fontawesome() {
 }
 add_action('wp_enqueue_scripts', 'framesync_enqueue_fontawesome');
 
-function menu_enqueue_scripts() {
-    // Enqueue your custom mobile menu JS
-    wp_enqueue_script(
-        'mobile-menu-script',
-        get_template_directory_uri() . '/js/menu.js',
-        array(),    // dependencies (empty if none)
-        '1.0',
-        true        // load in footer
-    );
+function enqueue_splide_assets() {
+
+  // Load Splide Core CSS
+  wp_enqueue_style(
+    'splide-css',
+    'https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css',
+    [],
+    null
+  );
+
+  // Load Splide Core JavaScript Library
+  wp_enqueue_script(
+    'splide-js',
+    'https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js',
+    [],
+    null,
+    true
+  );
+
+  // Load your custom initialization script (jQuery based)
+  wp_enqueue_script(
+    'splide-local',
+    get_template_directory_uri() . '/js/splide.js',
+    ['splide-js', 'jquery'],
+    null,
+    true
+  );
+
 }
-add_action('wp_enqueue_scripts', 'menu_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'enqueue_splide_assets');
+
+function enqueue_shade_card_assets() {
+
+    // Make sure main splide is already enqueued
+    wp_enqueue_script(
+        'shade-card-init',
+        get_template_directory_uri() . '/js/shade-card-init.js',
+        ['splide-js'],
+        null,
+        true
+    );
+
+    // Optional: extra styling if needed
+    wp_enqueue_style(
+        'shade-card-style',
+        get_template_directory_uri() . '/css/shade-card.css'
+    );
+
+}
+add_action('wp_enqueue_scripts', 'enqueue_shade_card_assets');
+
+function load_review_slider_assets() {
+
+
+  // Review Slider JS
+  wp_enqueue_script(
+    'review-js',
+    get_template_directory_uri() . '/js/review.js',
+    ['splide-js'],
+    null,
+    true
+  );
+
+}
+add_action('wp_enqueue_scripts', 'load_review_slider_assets');
+
+function load_contact_assets() {
+
+  wp_enqueue_script(
+    'contact-js',
+    get_template_directory_uri() . '/js/contact.js',
+    [],
+    null,
+    true
+  );
+
+}
+add_action('wp_enqueue_scripts', 'load_contact_assets');
+
+function load_mobile_menu_assets() {
+  wp_enqueue_script(
+    'menu-js',
+    get_template_directory_uri() . '/js/menu.js',
+    [],
+    null,
+    true // MUST be true
+  );
+}
+add_action('wp_enqueue_scripts', 'load_mobile_menu_assets');
+
+function load_product_controller() {
+  wp_enqueue_script(
+    'product-controller',
+    get_template_directory_uri() . '/js/product-controller.js',
+    ['splide-js'],
+    null,
+    true
+  );
+}
+add_action('wp_enqueue_scripts', 'load_product_controller');
+
+function load_counter_assets() {
+  wp_enqueue_script(
+    'counter-js',
+    get_template_directory_uri() . '/js/counter.js',
+    [],
+    null,
+    true
+  );
+}
+add_action('wp_enqueue_scripts', 'load_counter_assets');

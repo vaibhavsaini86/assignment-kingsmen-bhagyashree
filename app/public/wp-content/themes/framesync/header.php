@@ -22,6 +22,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
 
 	<?php wp_head(); ?>
 </head>
@@ -32,5 +33,5 @@
 
 <?php get_template_part('templates/global/content', 'header'); ?>
 
-<div id="page" class="site pt-[90px]">
+<div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'framesync' ); ?></a>

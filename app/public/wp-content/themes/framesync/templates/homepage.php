@@ -15,7 +15,12 @@
  */
 
  $parts = array( 
-	'home'
+	'home',
+	'about',
+	'products',
+	'shade-card',
+	'review',
+	'contact'
 );
 
 get_header();
